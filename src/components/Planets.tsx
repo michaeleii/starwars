@@ -23,28 +23,30 @@ function Planets() {
 				<div>Error fetching data</div>
 			) : (
 				<>
-					<button
-						onClick={() => setPage((old) => Math.max(old - 1, 0))}
-						disabled={page === 1}
-					>
-						Previous Page
-					</button>{" "}
-					<span>{page}</span>
-					<button
-						onClick={() => {
-							if (!isPreviousData && data.next) {
-								setPage((old) => old + 1);
-							}
-						}}
-						// Disable the Next Page button until we know a next page is available
-						disabled={isPreviousData || !data.next}
-					>
-						Next Page
-					</button>
 					<div>
 						{data.results.map((planet: IPlanet, i: number) => (
 							<Planet key={i} planet={planet} />
 						))}
+					</div>
+					<div className="btn-container">
+						<button
+							onClick={() => setPage((old) => Math.max(old - 1, 0))}
+							disabled={page === 1}
+						>
+							Previous Page
+						</button>{" "}
+						<span>{page}</span>
+						<button
+							onClick={() => {
+								if (!isPreviousData && data.next) {
+									setPage((old) => old + 1);
+								}
+							}}
+							// Disable the Next Page button until we know a next page is available
+							disabled={isPreviousData || !data.next}
+						>
+							Next Page
+						</button>
 					</div>
 				</>
 			)}
