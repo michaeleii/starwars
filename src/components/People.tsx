@@ -1,4 +1,8 @@
 function People() {
-	return <div>People</div>;
+	return (
+		<div>
+			<h2>People</h2>
+		</div>
+	);
 }
 export default People;

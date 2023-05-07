@@ -1,8 +1,8 @@
-function Navbar() {
+function Navbar({ setPage }: { setPage: (page: string) => void }) {
 	return (
 		<nav>
-			<button>Planets</button>
-			<button>People</button>
+			<button onClick={() => setPage("planets")}>Planets</button>
+			<button onClick={() => setPage("people")}>People</button>
 		</nav>
 	);
 }
