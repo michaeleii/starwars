@@ -8,11 +8,10 @@ async function fetchPlanets() {
 }
 function Planets() {
 	const { data, status } = useQuery("planets", fetchPlanets);
-	console.log(data);
 	return (
 		<div>
 			<h2>Planets</h2>
-			{status === "loading" && <div>Loading data</div>}
+			{status === "loading" && <div>Loading data...</div>}
 			{status === "error" && <div>Error fetching data</div>}
 			{status === "success" && (
 				<div>
