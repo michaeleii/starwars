@@ -4,7 +4,7 @@ import Person from "./Person";
 import { useState } from "react";
 
 async function fetchPeople(page: number) {
-	const res = await fetch(`http://swapi.dev/api/people/?page=${page}`);
+	const res = await fetch(`https://swapi.dev/api/people/?page=${page}`);
 	return res.json();
 }
 

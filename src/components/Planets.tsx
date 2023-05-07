@@ -4,7 +4,7 @@ import Planet from "./Planet";
 import { useState } from "react";
 
 async function fetchPlanets(page: number) {
-	const res = await fetch(`http://swapi.dev/api/planets/?page=${page}`);
+	const res = await fetch(`https://swapi.dev/api/planets/?page=${page}`);
 	return res.json();
 }
 function Planets() {
