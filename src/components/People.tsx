@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import IPerson from "../interfaces/IPerson";
 import Person from "./Person";
 
@@ -8,7 +8,10 @@ async function fetchPeople() {
 }
 
 function People() {
-	const { data, status } = useQuery("people", fetchPeople);
+	const { data, status } = useQuery({
+		queryKey: ["people"],
+		queryFn: fetchPeople,
+	});
 	return (
 		<div>
 			<h2>People</h2>

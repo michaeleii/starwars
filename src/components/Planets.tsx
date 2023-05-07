@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import IPlanet from "../interfaces/IPlanet";
 import Planet from "./Planet";
 
@@ -7,7 +7,10 @@ async function fetchPlanets() {
 	return res.json();
 }
 function Planets() {
-	const { data, status } = useQuery("planets", fetchPlanets);
+	const { data, status } = useQuery({
+		queryKey: ["planets"],
+		queryFn: fetchPlanets,
+	});
 	return (
 		<div>
 			<h2>Planets</h2>
