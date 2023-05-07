@@ -1,8 +1,27 @@
+import { useState } from "react";
+
 function Navbar({ setPage }: { setPage: (page: string) => void }) {
+	const [isActive, setIsActive] = useState("planets");
 	return (
 		<nav>
-			<button onClick={() => setPage("planets")}>Planets</button>
-			<button onClick={() => setPage("people")}>People</button>
+			<button
+				className={isActive === "planets" ? "active" : ""}
+				onClick={() => {
+					setIsActive("planets");
+					setPage("planets");
+				}}
+			>
+				Planets
+			</button>
+			<button
+				className={isActive === "people" ? "active" : ""}
+				onClick={() => {
+					setIsActive("people");
+					setPage("people");
+				}}
+			>
+				People
+			</button>
 		</nav>
 	);
 }
